@@ -1,38 +1,31 @@
 # README.md
 
-# Why Virtual Machine?
+# 🖥️ Why Virtual Machine?
 
-## How Virtual Machine works?
+## ❓ How Virtual Machine works?
 
-<aside>
-💾 Hypervisor가 가상머신이 호스트의 하드웨어를 사용할 수 있게끔 해준다. 하지만 Hypervisor 또한 Virtual Box와 같은 프로그램이기 때문에, 호스트의 운영체제 상에서 실행되어 가상머신이 요구한 작업이 실행되도록 하고, 가상머신 입장에서는 실제로 컴퓨터 하드웨어 상에서 곧바로 실행되는 것처럼 인식되도록 한다.
+Hypervisor가 가상머신이 호스트의 하드웨어를 사용할 수 있게끔 해준다. 하지만 Hypervisor 또한 Virtual Box와 같은 프로그램이기 때문에, 호스트의 운영체제 상에서 실행되어 가상머신이 요구한 작업이 실행되도록 하고, 가상머신 입장에서는 실제로 컴퓨터 하드웨어 상에서 곧바로 실행되는 것처럼 인식되도록 한다.
 
 쉽게 말해, Virtual Box는 프로그램으로서 Host OS에게 실제 하드웨어를 일부분 할당받고, Guest OS가  할당받은 하드웨어를 전부라고 생각하게끔 해주는 역할을 한다.
 
-</aside>
+## 🖥️ Purpose of Virtual Machine
 
-## Purpose of Virtual Machine
-
-<aside>
-💡 새로운 하드웨어를 장만할 필요 없이 시스템을 구축할 수 있다는 장점이 있다. 
+새로운 하드웨어를 장만할 필요 없이 시스템을 구축할 수 있다는 장점이 있다. 
 개인의 관점에서는 맥을 쓰는 사람이 윈도우용 컴퓨터를 추가로 살 필요 없이 프로그램처럼 윈도우를 설치해 쓸 수 있기도하고 이를 통해 다른 운영체제에서만 사용할 수 있는 프로그램 등을 테스트하는 용도 등으로 사용할 수 있다.
 
 예시로, Born2BeRoot 과제만 하더라도, 맥 컴퓨터에 리눅스를 물리적으로 설치하지 않고 가상머신에 설치함으로써 호스트 맥 운영체제에 영향을 주지 않고 리눅스 환경에서 다양한 작업들을 할 수 있고, 리눅스 환경의 서버를 구성할 수도 있다.
 
 회사나 서버의 관점에서는 한대의 서버 컴퓨터에 여러 개의 가상 머신을 만들어 여러 개의 서버를 돌리면 유지 비용이나 관리 등에서 유리하다.
- 
-다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다.
 
-</aside>
+다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다.
 
 - 비용 절감, 민첩성 및 속도, 가동 중지 시간 감소, 스케일링 성능, 보안 이점 (출처 : [microsoft asure](https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-a-virtual-machine))
 
-# About Debian
+# 👪 About Debian
 
-### Rocky vs. Debian
+### 🆚 Rocky vs. Debian
 
-<aside>
-🆚 Linux에는 크게 Redhat 계열과 Debian 계열의 Linux로 나누어진다.
+Linux에는 크게 Redhat 계열과 Debian 계열의 Linux로 나누어진다.
 
 Redhat Enterprise Linux는 Redhat 기업에서 개발하고 있는 기업용 리눅스로, 오픈 소스이지만, 1년 단위 구독을 해서 비용을 지불하면 SW 업데이트 등의 기술지원을 받을 수 있다. 한 기업에서 제공하는 리눅스이기 때문에 업데이트가 6개월 주기로 늦다. 패키지 관리자는 RPM(Redhat Package Manager)를 사용하며 패키지 의존성 해결을 위해  YUM을 사용한다. 패키지 개수는 3000여개로 적은데, 이는 안정성을 위한 것으로 보인다. 물론, 써드파티 패키지 관리자 등을 이용해 설치해서 사용할 수 있다.
 
@@ -42,12 +35,9 @@ Debian Linux는 커뮤니티 기반의 프로젝트로 개발되어 업데이트
 
 Debian Linux는 Stable 버전만 존재하는 RHEL과 달리 Stable, Unstable, Testing 저장소가 존재한다. 일반 사용자들이 많이 사용하는 Ubuntu Linux 역시 Debian Linux를 기반으로 하며, 구글에서도 Debian을 기반으로 수정한 gLinux를 사용한다.
 
-</aside>
+### 🆚 apt vs. aptitude
 
-### apt vs. aptitude
-
-<aside>
-💾 데비안 리눅스에서는 dpkg(Debian PacKaGe)로 *.deb 라는 설치 파일로 패키지를 설치 할 수 있다. 그런데 패키지들은 실행되기 위해 필요로 하는(의존하는) 다른 패키지들이 있는데, 이로 인해 의존성 문제가 발생하게 된다. 이를 해결하기 위해 Apt와 Aptitude 같은 Front-end 도구가 생겨났다. 
+데비안 리눅스에서는 dpkg(Debian PacKaGe)로 *.deb 라는 설치 파일로 패키지를 설치 할 수 있다. 그런데 패키지들은 실행되기 위해 필요로 하는(의존하는) 다른 패키지들이 있는데, 이로 인해 의존성 문제가 발생하게 된다. 이를 해결하기 위해 Apt와 Aptitude 같은 Front-end 도구가 생겨났다. 
 
 apt-get 은 사용자가 A 패키지의 설치를 요구하면 /etc/apt/sources.list 파일에서 우분투 패키지 저장소의 링크를 찾아 A 패키지 설치에 필요한 패키지 목록을 받아 필요 패키지들을 먼저 설치한 뒤 A 패키지를 설치한다.
 
@@ -55,25 +45,17 @@ APT는 커맨드 라인에서 작동하는 패키지 관리 도구이다. 기존
 
 Aptitude 는 기능상으로 apt와 비슷하지만 TUI(Text User Interface) 이며, 의존성 문제 발생시 다른 대안을 제시해주는 등의 추가 기능이 있다.
 
-</aside>
+### 🆚 DAC vs. MAC
 
-### DAC vs. MAC
-
-<aside>
-🆚 리눅스나 유닉스는 기본적으로 DAC 방식을 이용해 사용자의 리소스에 대한 접근을 제어하는데, Redhat 계열의 리눅스에서는 SELinux(Security Enhanced Linux)가, Debian 계열에서는 AppApmor(Application Armor) 모듈이 MAC 방식을 이용해 접근을 제어한다.
+리눅스나 유닉스는 기본적으로 DAC 방식을 이용해 사용자의 리소스에 대한 접근을 제어하는데, Redhat 계열의 리눅스에서는 SELinux(Security Enhanced Linux)가, Debian 계열에서는 AppApmor(Application Armor) 모듈이 MAC 방식을 이용해 접근을 제어한다.
 
 DAC(Discretionary Access Control), 임의 접근 통제는 시스템 객체 접근을 사용자 혹은 그룹의 신분을 기준으로 제한하는 방법이다. 사용자의 판단하에 자신이 소유한 파일의 접근 권한을 다른 사용자에게 줄 수 있다. 이로 인해 발생하는 가장 큰 문제는 사용자의 권한을, 특히 root의 권한을 탈취당한다면 시스템을 완벽히 장악당할 수 있다는 문제가 발생한다. 
 
 MAC(Mandatory Access Control), 강제 접근 통제는 미리 정해진 정책과 보안 등급에 따라 사용자와 객체의 허용 등급을 비교하여 접근을 통제하는 방법이다. 높은 보안 등급의 정보는 낮은 보안 등급의 사용자가 접근할 수 없으며, 아무리 소유자라고 하더라도 등급 정책에 어긋나면 접근할 수 없다.
 
-</aside>
+### 🛡️ AppArmor
 
-### AppArmor
-
-<aside>
-🛡️ AppArmor는 MAC 방식으로 접근을 제어하는 모듈로, 프로그램들이 실행되기 전에 호출되는 명령들을 검사하고 실행여부를 정할 수 있다. 더 자세한 예시로는 System Call을 제한하여 프로그램의 동작을 제한한다.
-
-</aside>
+AppArmor는 MAC 방식으로 접근을 제어하는 모듈로, 프로그램들이 실행되기 전에 호출되는 명령들을 검사하고 실행여부를 정할 수 있다. 더 자세한 예시로는 System Call을 제한하여 프로그램의 동작을 제한한다.
 
 ```bash
 # Check AppArmor Status
@@ -83,9 +65,9 @@ aa-status
 aa-enabled
 ```
 
-# Using Linux
+# ⏯️ Using Linux
 
-## Hostname
+## 🏠 Hostname
 
 - 네트워크에서 시스템(컴퓨터)을 특정하기 위한 이름
 - [건물]
@@ -102,20 +84,20 @@ sudo vi /etc/hosts
 # [old] -> [new]
 ```
 
-## Domain name
+## 🌆 Domain name
 
 - hostname의 오른쪽에 붙어 host들이 들어있는 네트워크를 지칭하는 이름
 - [동네]
 
-## USAGE
+## ⏯️ USAGE
 
 - 일반적으로 [hostname.domain.com](http://hostname.domain.com) 과 같은 식으로 사용되며 다른 도메인에 들어있는 특정 host에 접속하기 위해서 두 이름 모두 필요
 - 같은 네트워크 도메인 상에서 다른 컴퓨터에 접속하기 위해서는 hostname 만으로 접속 가능
 - [특정건물이름].[동네명].com
 
-### 탄생배경
+### ❓ 탄생배경
 
-- 컴퓨터가 방 크기만하던 시절을 생각해보면 이해하기 쉬움. 지금과 같이 인당 하나씩 컴퓨터를 가지고 있는 것이 아니라, 매우 비싼 컴퓨터를 여러 사람들이 동시에 접속해서 사용하기 위해 다중 사용자 운영체제로 구현한 것이다.
+- 컴퓨터가 방 크기만하던 시절을 생각해보면 이해하기 쉬움. 지금과 같이 인당 하나씩 컴퓨터를 가지고 있는 것이 아니라, 매우 비싼 컴퓨터를 여러 사람들이 동시에 접속해서 사용하기 위해 다중 사용자 운영체제로 구현한 것이다. 이외의 기능들도 이러한 관점에서 바라보면 존재 이유가 더 분명한 것들이 많다.
 
 ```bash
 # Add user
@@ -125,7 +107,7 @@ sudo adduser [new username]
 sudo deluserq -r [username]
 ```
 
-## Group
+## 👥 Group
 
 ```bash
 # print the groups a user is in
@@ -141,16 +123,13 @@ groupdel [groupname]
 usermod -aG sudo,user42 gyoon
 ```
 
-# Setting Server
+# 🌐 Setting Server
 
-## UFW
+## 🚧 UFW
 
 ### Definition
 
-<aside>
-🚧 UFW(Uncomplicated Firewall)은 Debian 계열의 리눅스에서 방화벽 설정을 쉽게 관리 할 수 있게끔 하기 위해 있는 프로그램이다. 사용법이 까다로운 iptables보다 간단하게 설정할 수 있도록 한 패키지이다.
-
-</aside>
+UFW(Uncomplicated Firewall)은 Debian 계열의 리눅스에서 방화벽 설정을 쉽게 관리 할 수 있게끔 하기 위해 있는 프로그램이다. 사용법이 까다로운 iptables보다 간단하게 설정할 수 있도록 한 패키지이다. 
 
 ### Solution
 
@@ -181,14 +160,13 @@ ufw status numbered
 ufw delete [number]
 ```
 
-## SSH
+## 🔐 SSH
 
 ### Definition
 
 ![Untitled](README%20md%202ed0a84498664e7ea842cc3958ad40ac/Untitled.png)
 
-<aside>
-⌨️ SSH(Secure Shell)은 다른 컴퓨터의 로그인하여 Shell을 사용할 수 있게 해주는 프로그램 혹은 프로토콜의 명칭이다. 기존의 원격 접속 방식이었던 Telnet은 암호화를 제공하지 않아 패킷을 분석하면 주고 받는 파일의 내용이나 비밀번호 등의 데이터를 탈취할 수 있었는데, SSH는 이를 암호화하여 안전하게 통신할 수 있도록 한다. 대칭키 방식이 클라이언트-서버 간 연결 암호화에 사용되고, 비대칭키 방식이 키 교환, 클라이언트 인증, 서버 인증에 사용된다. 또한 해시 알고리즘이 패킷의 무결성 확인을 위해 사용된다. 그 사용 예시와 SSH 프로토콜의 순서는 다음과 같다. 
+SSH(Secure Shell)은 다른 컴퓨터의 로그인하여 Shell을 사용할 수 있게 해주는 프로그램 혹은 프로토콜의 명칭이다. 기존의 원격 접속 방식이었던 Telnet은 암호화를 제공하지 않아 패킷을 분석하면 주고 받는 파일의 내용이나 비밀번호 등의 데이터를 탈취할 수 있었는데, SSH는 이를 암호화하여 안전하게 통신할 수 있도록 한다. 대칭키 방식이 클라이언트-서버 간 연결 암호화에 사용되고, 비대칭키 방식이 키 교환, 클라이언트 인증, 서버 인증에 사용된다. 또한 해시 알고리즘이 패킷의 무결성 확인을 위해 사용된다. 그 사용 예시와 SSH 프로토콜의 순서는 다음과 같다. 
 
 1. 클라이언트가 서버의 TCP 포트(Default : 22)로 SSH 접속 요청을 보내면 서버는 자신이 지원하는 SSH 프로토콜의 버전을 응답으로 보내 준다. 그러면 클라이언트는 자신의 버전 중 일치하는 것이 있다면 연결을 지속한다.
 
@@ -216,8 +194,6 @@ ufw delete [number]
     7. 서버는 난수와 세션키 결합해 해시값 계산 후 비교
     8. 동일하면 클라이언트 인증 완료
 
-</aside>
-
 ### Solution
 
 ```bash
@@ -241,9 +217,9 @@ vi /etc/ssh/sshd_config -> PermitRootLogin no
 sudo systemctl restart ssh
 ```
 
-# Linux Settings
+# ⚙️ Linux Settings
 
-## Strong Password Policy
+## 🔑 Strong Password Policy
 
 ### Requirements
 
@@ -292,14 +268,11 @@ sudo chage -l [username]
 passwd -e [username]
 ```
 
-## Strong Configuration for sudo groups
+## 👤 Strong Configuration for sudo groups
 
 ### Sudo
 
-<aside>
-🦸🏻‍♂️ SUDO, excute a comman as another user (Substitute User DO)
-
-</aside>
+SUDO, excute a comman as another user (Substitute User DO)
 
 ### Requirements
 
@@ -333,7 +306,7 @@ Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 - sudo 명령어는 현재 계정의 shell이 아니라 가상의 shell을 생성한 뒤 그 안에서 실행한다. 이 때 가상 shell의 환경변수 PATH를 secure_path에 적힌 경로에서만 찾아 명령이 실행된다. 그러면 shell을 실행했을 때 입력받은 shell 명령어들은 PATH로 지정된 경로에서 바이너리 파일들을 찾아 명령을 수행한다.
 - 만약 secure_path가 지정되어 있지 않다면, sudo 권한이 있는 사용자가 sudo를 이용하여 PATH 환경변수에 악성코드가 포함된 경로의 바이너리를 실행해 문제가 발생할 수 있다.
 
-## Monitoring.sh
+## 👀 Monitoring.sh
 
 ### Requirements
 
@@ -399,13 +372,13 @@ connections="$(netstat -ant | sed '/ESTABLISHED/!d' | wc -l) ESTABLISHED"
 
 users=$(who | sed '/pts/!d' | wc -l)
 
-ipv4=$(ifconfig | sed '/broadcast/!d' | awk '{print $2}')
-mac=$(ifconfig | sed '/ether/!d' | awk '{print $2}')
+ipv4=$(ip addr | grep inet | grep enp | sed 's/\// /g' | awk '{print $2}')
+mac=$(ip addr | sed '/ether/!d' | awk '{print $2}')
 network="IP $ipv4 ($mac)"
 
 sudoes="$(echo "($(find /var/log/sudo -type f | wc -l)-1)/8" | bc) cmd"
 
-printf "\t#ㅈArchitecture : $os\n"
+printf "\t#Architecture : $os\n"
 printf "\t#CPU physical : $pcpu\n"
 printf "\t#vCPU : $vcpu\n"
 printf "\t#Memory Usage : $ram_info\n"
@@ -421,18 +394,13 @@ printf "\t#Sudo : $sudoes\n"
 
 ### Cron
 
-<aside>
-❓
-
-</aside>
-
 ### Notes
 
 - 위에서 visudo를 통해  `Defaults requirestty` 옵션을 주었는데, cron은 tty 환경에서 실행되지 않기 때문에 `sudo` 명령어가 정상적으로 작동하지 않는다.
 
-# Bonus Part
+# ➕ Bonus Part
 
-## Set up partitions
+## ⚙️ Set up partitions
 
 ### Example
 
@@ -502,9 +470,23 @@ printf "\t#Sudo : $sudoes\n"
     ![Screen Shot 2022-12-24 at 6.33.48 PM.png](README%20md%202ed0a84498664e7ea842cc3958ad40ac/Screen_Shot_2022-12-24_at_6.33.48_PM.png)
     
 
-## Set functional WordPress
+## 🌐 Set functional WordPress
 
-## Set up a optional service
+- using lighttpd, MariaDB, PHP
+
+### WordPress
+
+### Lighttpd
+
+```bash
+sud
+```
+
+### MariaDB
+
+### PHP
+
+## 🎲 Set up a optional service
 
 ```bash
 sudo apt install gpm
