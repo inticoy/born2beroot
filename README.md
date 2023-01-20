@@ -478,10 +478,6 @@ printf "\t#Sudo : $sudoes\n"
 
 ### Lighttpd
 
-```bash
-sud
-```
-
 ### MariaDB
 
 ### PHP
