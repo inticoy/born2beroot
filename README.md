@@ -404,7 +404,7 @@ printf "\t#Sudo : $sudoes\n"
 
 ### Example
 
-![Screen Shot 2022-12-24 at 6.32.08 PM.png](README%20md%202ed0a84498664e7ea842cc3958ad40ac/Screen_Shot_2022-12-24_at_6.32.08_PM.png)
+![images/Screen Shot 2022-12-24 at 6.32.08 PM.png](README%20md%202ed0a84498664e7ea842cc3958ad40ac/Screen_Shot_2022-12-24_at_6.32.08_PM.png)
 
 - 참고 : [https://story-of-flower.tistory.com/m/451](https://story-of-flower.tistory.com/m/451)
 - Boot Partition
